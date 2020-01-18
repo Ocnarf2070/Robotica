@@ -1,0 +1,14 @@
+<!-- Launch file for the Robotics exercices with ROS -->
+
+<launch>    
+
+    ### ROBOT SIMULATION ###
+    <param name="use_sim_time" value="true" />
+    <include file="$(find missions_pkg)/launch/simbot_stage.launch" >
+        <arg name="world_file" value="-d $(find missions_pkg)/world/robotics-house4.world" />
+    </include>  
+       
+    ### NAVIGATION ###
+    <include file="$(find missions_pkg)/launch/simbot_keyboard_control.launch" />
+          
+</launch>

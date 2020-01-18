@@ -1,0 +1,14 @@
+<!-- 
+  SLAM node implementing gmapping. It needs odometry and laser scans to operate. 
+  It can use a .bag file being played or real-time laser scans
+
+  TO save the map to file (image) use the command: "rosrun map_server map_saver"
+-->
+
+<launch>
+  <remap from="scan" to="laser_scan"/>              #topic_id where laser scans are published
+
+  <node name="gmapping" pkg="gmapping" type="slam_gmapping">
+    <param name="odom_frame" value="odom" />
+  </node>
+</launch>

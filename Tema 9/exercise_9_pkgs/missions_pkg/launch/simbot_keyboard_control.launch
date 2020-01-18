@@ -1,0 +1,11 @@
+<!-- 
+  This launch file display an interface to control a based mobile robot with the keyboard
+--> 
+
+<launch>
+  <node pkg="keyboard_control" type="keyboard_control" name="keyboard_control" output="screen"  >
+    <param name="linear_v" type="double" value="0.8" />     # m/s
+    <param name="angular_v" type="double" value="0.8" />    # rad/s    
+    <param name="publish_topic" type="str" value="/cmd_vel" />  #set topic name to publish the velocity commands
+  </node>
+</launch>

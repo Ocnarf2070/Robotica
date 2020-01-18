@@ -1,0 +1,23 @@
+<!-- Launch file for the Robotics exercices with ROS -->
+
+<launch>    
+
+    ### ROBOT SIMULATION ###
+    <param name="use_sim_time" value="true" />
+    <include file="$(find missions_pkg)/launch/simbot_stage.launch" >
+        <arg name="world_file" value="-d $(find missions_pkg)/world/robotics-house4.world" />
+    </include>
+    
+    ### URDF model "giraff" robot ###
+    <include file="$(find missions_pkg)/launch/simbot_urdf.launch" />
+       
+    ### NAVIGATION ###
+    <include file="$(find missions_pkg)/launch/simbot_keyboard_control.launch" />
+    
+    ### MAPPING/SLAM ###
+    <include file="$(find missions_pkg)/launch/simbot_gmapping.launch" />
+  
+    ### RVIZ  ###
+    <node name="rviz" pkg="rviz" type="rviz" respawn="false" output="screen" args="-d $(find missions_pkg)/rviz/simbot_mapcreation.rviz"/>
+   
+</launch>
